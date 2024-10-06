@@ -23,8 +23,8 @@ jobs:
 
       - name: Deploy to S3
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AKIAZ7SAK6S32AHTPK7Y }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.g+FmnYL5RFWbT5+ML7LQFkbdaJ6M3U/dtJ+xMUPd }}
           AWS_REGION: us-east-1
           S3_BUCKET: my-react-app-sjc
         run: |
