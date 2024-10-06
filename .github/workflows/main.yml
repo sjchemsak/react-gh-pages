@@ -14,19 +14,16 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install dependencies
-        run: npm install
-        working-directory: ./my-app
-
-      - name: Build project
-        run: npm run build
-        working-directory: ./my-app
+        run: |
+          npm install
+          npm run build
 
       - name: Deploy to S3
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AKIAZ7SAK6S32AHTPK7Y }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.g+FmnYL5RFWbT5+ML7LQFkbdaJ6M3U/dtJ+xMUPd }}
-          AWS_REGION: us-east-1
-          S3_BUCKET: my-react-app-sjc
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
         run: |
           npm install -g aws-cli
-          aws s3 sync my-app/build/ s3://$S3_BUCKET --delete
+          aws s3 sync build/ s3://$AWS_S3_BUCKET --delete
