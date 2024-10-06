@@ -15,9 +15,11 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        working-directory: ./my-app
 
       - name: Build project
         run: npm run build
+        working-directory: ./my-app
 
       - name: Deploy to S3
         env:
@@ -27,4 +29,4 @@ jobs:
           S3_BUCKET: my-react-app-sjc
         run: |
           npm install -g aws-cli
-          aws s3 sync build/ s3://$S3_BUCKET --delete
+          aws s3 sync my-app/build/ s3://$S3_BUCKET --delete
