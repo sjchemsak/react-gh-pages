@@ -34,4 +34,4 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Deploy to S3
-        run: aws s3 sync ./my-app/build/ s3://your-s3-bucket-name --delete
+        run: aws s3 sync ./my-app/build/ s3://my-react-app-sjc --delete
