@@ -23,7 +23,7 @@ jobs:
         working-directory: ./my-app/src
 
       - name: Sync to S3
-        run: aws s3 sync ./my-app/build/ s3://your-s3-bucket-name --delete
+        run: aws s3 sync ./my-app/build/ s3://my-react-app-sjc --delete
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
